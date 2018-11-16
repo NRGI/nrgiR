@@ -1,4 +1,4 @@
-get_rp <- function(DT=FALSE, tibble=FALSE) {
+get_rp_website <- function(DT=FALSE, tibble=FALSE) {
 
   if(DT & tibble) {
       stop("Select DT or tibble")
@@ -17,12 +17,12 @@ get_rp <- function(DT=FALSE, tibble=FALSE) {
   res$source <- read.csv("Source.csv", stringsAsFactors = FALSE)
 
   if(DT) {
-    print("Loading as data.table")
+    cat("Loading as data.table")
     lapply(res, data.table::setDT)
   }
 
   if(tibble) {
-    print("Loading as tibble")
+    cat("Loading as tibble")
     res$entity <- dplyr::as_tibble(res$entity)
     res$project <-dplyr::as_tibble(res$project)
     res$source <- dplyr::as_tibble(res$source)

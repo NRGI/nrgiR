@@ -1,10 +1,10 @@
-\name{get_rp}
-\alias{get_rp}
+\name{get_rp_website}
+\alias{get_rp_website}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Get data from resourceprojects.org}
 \description{Downloads all three datasets from resourceprojects.org. Returns data as a list object.}
 \usage{
-get_rp()
+get_rp_website()
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{}
@@ -35,9 +35,10 @@ get_rp()
 }
 \examples{
 
-rp <- get_rp()
+rp <- get_rp_website()
 
 # rp$entity
 # rp$project
 # rp$source
 
+}

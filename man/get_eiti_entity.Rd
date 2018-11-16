@@ -3,19 +3,19 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Get EITI government entity data}
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Downloads EITI summary data file for government entity revenues from resourcedata.org. Returns a single \code{data.table}.
 }
 \usage{
-get_eiti_entity(x)
+get_eiti_entity()
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
+
 %%     ~~Describe \code{x} here~~
 }
-}
+
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+Data sourced from \url{https://www.resourcedata.org/dataset/eiti-complete-summary-table}/
 }
 \value{
 %%  ~Describe the value returned
@@ -40,14 +40,8 @@ get_eiti_entity(x)
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x)
-{
-  }
+dt = get_eiti_entity()
+head(dt)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

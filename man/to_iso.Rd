@@ -1,21 +1,20 @@
-\name{get_eiti_company}
-\alias{get_eiti_company}
+\name{to_iso}
+\alias{to_iso}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Get EITI government entity data}
+\title{Convert countries to ISO codes}
 \description{
-Downloads EITI summary data file for company payments from resourcedata.org. Returns a single \code{data.table}.
+%%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-get_eiti_company()
+to_iso3(x, output="iso3")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-
-%%     ~~Describe \code{x} here~~
-
+  \item{x}{character vector of country names.}
+  \item{output}{}
 }
 \details{
-Data sourced from \url{https://www.resourcedata.org/dataset/eiti-complete-summary-table}/
+%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
 %%  ~Describe the value returned
@@ -40,8 +39,14 @@ Data sourced from \url{https://www.resourcedata.org/dataset/eiti-complete-summar
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-dt = get_eiti_company()
-head(dt)
+##---- Should be DIRECTLY executable !! ----
+##-- ==>  Define data, use random,
+##--	or do  help(data=index)  for the standard data sets.
+
+## The function is currently defined as
+function (x)
+{
+  }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

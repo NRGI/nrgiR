@@ -43,6 +43,7 @@ A \code{data.table}. The first two columns are the group (if applicable) and ori
 
 potential_match(vec1=c("abc", "pigglywiggly"), vec2=c("abc", "rtyert", "piggly"), fancy=TRUE)
 
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{}% use one of  RShowDoc("KEYWORDS")
