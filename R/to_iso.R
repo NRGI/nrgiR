@@ -1,4 +1,7 @@
 to_iso <- function(x, output="iso3") {
+
+  if(!output %in% c("iso2","iso3","clean")){ stop("`output` must be one of: 'iso2', 'iso3', or 'clean'")  }
+
   lookup <- structure(list(cleanName = c("Afghanistan", "Afghanistan", "Afghanistan",
                                          "Afghanistan", "Aland Islands", "Aland Islands", "Aland Islands",
                                          "Aland Islands", "Aland Islands", "Aland Islands", "Albania",
@@ -865,7 +868,8 @@ to_iso <- function(x, output="iso3") {
     by.x='rawName_in',
     by.y='rawName_lower',
     all.x=T,
-    all.y=F
+    all.y=F,
+    sort=FALSE
   )
 
 
@@ -873,7 +877,7 @@ to_iso <- function(x, output="iso3") {
   if(nrow(out[is.na(iso3)])>0){
     n <- which(is.na(out$iso3))
 
-    warning(paste0("Could not match ", length(n), " value(s). Position(s): ", n))
+    warning(paste0("Could not match ", length(n), " value(s). Position(s): ", paste0(n, collapse=", ")))
 
   }
 
