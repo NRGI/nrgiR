@@ -803,7 +803,7 @@ to_iso <- function(x, output="iso3") {
                                                                                                                                  "MD", "MD", "MD", "MD", "MD", "MC", "MC", "MC", "MC", "MN", "MN",
                                                                                                                                  "MN", "MN", "ME", "ME", "ME", "ME", "MS", "MS", "MS", "MS", "MA",
                                                                                                                                  "MA", "MA", "MA", "MA", "MZ", "MZ", "MZ", "MZ", "MM", "MM", "MM",
-                                                                                                                                 "MM", "MM", NA, NA, NA, NA, "NR", "NR", "NR", "NR", "NP", "NP",
+                                                                                                                                 "MM", "MM", "NA", "NA", "NA", "NA", "NR", "NR", "NR", "NR", "NP", "NP",
                                                                                                                                  "NP", "NP", "NL", "NL", "NL", "NL", "NL", "NL", "NL", "NL", "NC",
                                                                                                                                  "NC", "NC", "NC", "NZ", "NZ", "NZ", "NZ", "NZ", "NZ", "NI", "NI",
                                                                                                                                  "NI", "NI", "NE", "NE", "NE", "NE", "NG", "NG", "NG", "NG", "NG",
