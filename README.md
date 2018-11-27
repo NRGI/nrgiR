@@ -1,5 +1,6 @@
 # nrgiR
 
 
-An internal R package for the Natural Resource Governance Institute. Currently private; to install either clone repo locally
-or use `devtools::install_github()` with the `auth_token` argument.
+An R package for the Natural Resource Governance Institute. 
+
+To install either clone repo locally, if you want to contribute to development, or use `devtools::install_github("NRGI/nrgiR)` (you will need the `devtools` package installed).
