@@ -14,4 +14,5 @@ Depends:
 Imports:
   data.table,
   ggplot2,
-  googlesheets
+  googlesheets,
+  magrittr
