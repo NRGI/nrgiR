@@ -17,4 +17,7 @@ get_subsidiaries <- function(companyName) {
     ##get the final list of companies
     companyNodes <- companyNodes[!str_detect(companyNodes, "PDF")] %>% 
         str_replace_all(., ",", "")
+    
+    ##return the object
+    companyNodes
 }
