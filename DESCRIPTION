@@ -16,3 +16,4 @@ Imports:
   ggplot2,
   googlesheets,
   magrittr
+  rstudioapi
