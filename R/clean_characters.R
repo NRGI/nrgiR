@@ -8,7 +8,8 @@ clean_characters <- function(rawChars){
                         'Ö'='O', 'Ø'='O', 'Ù'='U', 'Ú'='U', 'Û'='U',
                         'Ü'='U', 'Ý'='Y', 'Þ'='B', 'ß'='s', 'à'='a',
                         'á'='a', 'â'='a', 'ã'='a', 'ä'='a', 'å'='a',
-                        '’'="'", '“'='"', '”'='"', 'ü'='u',#'æ'='a',
+                        '’'="'", '“'='"', '”'='"', 'ü'='u', 'ł'='l',
+                        # 'æ'='a',
                         'ç'='c', 'è'='e', 'é'='e', 'ê'='e',
                         'ë'='e', 'ì'='i', 'í'='i', 'î'='i', 'ï'='i',
                         'ð'='o', 'ñ'='n', 'ò'='o', 'ó'='o', 'ô'='o',
@@ -22,45 +23,50 @@ clean_characters <- function(rawChars){
 
 
   inputChars <- cleanTibble$cleanRaws
-
   ##Initialize the vec
   out <- character()
 
-  for (i in 1:length(inputChars)) {
+  if(length(inputChars)==0){
+    NA
+  } else {
 
-    inputChars[i] <- stringr::str_replace_all(inputChars[i], "\\s+", " ") %>%
-      stringr::str_trim()
+    for (i in 1:length(inputChars)) {
 
-    inputChars[i] <- gsub("£", "GBP", inputChars[i])
-    inputChars[i] <- gsub("€", "EUR", inputChars[i])
-    inputChars[i] <- gsub("–", "-", inputChars[i])
-    inputChars[i] <- gsub("æ", "ae", inputChars[i])
+      inputChars[i] <- stringr::str_replace_all(inputChars[i], "\\s+", " ") %>%
+        stringr::str_trim()
 
-    if (inputChars[i] == "" | inputChars[i] == "NA") {
-      inputChars[i] <- NA
+      inputChars[i] <- gsub("£", "GBP", inputChars[i])
+      inputChars[i] <- gsub("€", "EUR", inputChars[i])
+      inputChars[i] <- gsub("–", "-", inputChars[i])
+      inputChars[i] <- gsub("æ", "ae", inputChars[i])
+
+
+      if(inputChars[i] == "" | inputChars[i] == "NA") {
+        inputChars[i] <- NA
+      }
+
+      cleaned <- chartr(paste(names(unwanted_array),
+                              collapse = ''),
+                        paste(unwanted_array,
+                              collapse = ''),
+                        inputChars[i])
+
+      if (Encoding(cleaned) == "UTF-8") {
+        cleaned <- iconv(cleaned, from = "UTF-8", to = "ASCII", sub = "")
+      }
+
+      out <- c(out, cleaned)
+
+
     }
+    cleanTibble$out <- out
 
-    cleaned <- chartr(paste(names(unwanted_array),
-                            collapse = ''),
-                      paste(unwanted_array,
-                            collapse = ''),
-                      inputChars[i])
+    outTibble <- dplyr::tibble(rawVals = rawChars) %>%
+      dplyr::left_join(., cleanTibble, by = "rawVals") %>%
+      dplyr::select(out) %>%
+      unlist(use.names = F) %>%
+      as.character()
 
-    if (Encoding(cleaned) == "UTF-8") {
-      cleaned <- iconv(cleaned, from = "UTF-8", to = "ASCII", sub = "")
-    }
-
-    out <- c(out, cleaned)
-
-
+    outTibble
   }
-  cleanTibble$out <- out
-
-  outTibble <- dplyr::tibble(rawVals = rawChars) %>%
-    dplyr::left_join(., cleanTibble, by = "rawVals") %>%
-    dplyr::select(out) %>%
-    unlist(use.names = F) %>%
-    as.character()
-
-  outTibble
 }
