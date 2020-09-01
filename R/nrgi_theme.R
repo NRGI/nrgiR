@@ -61,11 +61,11 @@ nrgi_theme <- function (base_size = 11, base_family = "")
 
     panel.grid.major = ggplot2::element_line(colour = "white"),
     panel.grid.major.x = ggplot2::element_line(color=NA),
-    panel.grid.major.y = ggplot2::element_line(size=.5, color="grey80"),
+    panel.grid.major.y = ggplot2::element_line(size=.1, color="grey80"),
 
     panel.grid.minor = ggplot2::element_line(colour = "white", size = 0.25),
     panel.grid.minor.x = ggplot2::element_line(color=NA),
-    panel.grid.minor.y = ggplot2::element_line(size=.5, color="grey80"),
+    panel.grid.minor.y = ggplot2::element_line(color = NA),
 
     panel.spacing = ggplot2::unit(half_line, "pt"),
     panel.spacing.x = NULL,
