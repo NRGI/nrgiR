@@ -10,7 +10,8 @@ License:
 Encoding: UTF-8
 LazyData: true
 Depends:
-  data.table
+  data.table,
+  readxl
 Imports:
   data.table,
   ggplot2,
