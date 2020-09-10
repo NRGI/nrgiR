@@ -6,7 +6,7 @@ Author: Tommy Morrison
 Maintainer: Tommy Morrison <tmorrison@resourcegovernance.org>
 Description: 
     Functions for accessing NRGI data and other commonly-needed functionality within NRGI work.
-License: 
+License: Open
 Encoding: UTF-8
 LazyData: true
 Depends:
