@@ -3,6 +3,8 @@ from_iso <- function(x) {
   lookup <- iso
 
   data.table::setDT(lookup)
+  lookup[iso3=="NAM", iso2:="NA"]
+  
   if(nchar(x[1])==3){
     lookup[, match_lower:=tolower(iso3)]
   }

@@ -2,8 +2,8 @@ to_iso <- function(x, output="iso3") {
 
   if(!output %in% c("iso2","iso3","clean")){ stop("`output` must be one of: 'iso2', 'iso3', or 'clean'")  }
   lookup <- iso
-
   data.table::setDT(lookup)
+  lookup[iso3=="NAM", iso2:="NA"]
 
   lookup[, rawName_lower:=tolower(rawName)]
   x_low <- gsub('[[:punct:]]','', x)
